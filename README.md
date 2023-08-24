@@ -68,7 +68,7 @@ server {
 [codecov-href]: https://codecov.io/gh/kiwilan/feed-renderer
 [license-src]: https://img.shields.io/github/license/kiwilan/feed-renderer.svg?style=flat&colorA=18181B&colorB=F0DB4F
 [license-href]: https://github.com/kiwilan/feed-renderer/blob/main/LICENSE
-[node-version-src]: https://img.shields.io/static/v1?style=flat-square&label=Node.js&message=v16&colorA=18181B&colorB=F0DB4F
+[node-version-src]: https://img.shields.io/static/v1?label=Node.js&message=v16&style=flat&colorA=18181B&colorB=F0DB4F
 [node-version-href]: https://nodejs.org/en/
 [tests-src]: https://img.shields.io/github/actions/workflow/status/kiwilan/feed-renderer/run-tests.yml?branch=main&label=tests&style=flat-square&colorA=18181B
 [tests-href]: https://github.com/kiwilan/feed-renderer/actions/workflows/run-tests.yml
