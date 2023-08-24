@@ -1,6 +1,7 @@
-import { component } from '../renderers'
+import { renderToString } from 'react-dom/server'
+import { PodcastRenderer } from '../react'
+import type { Channel } from '../types'
 import { Episode } from './Episode'
-import type { Channel } from '~/types'
 
 export class Podcast {
   protected constructor(
@@ -119,23 +120,10 @@ export class Podcast {
     return this.episodes?.[index]
   }
 
-  // public render(): any {
-  //   // return renderToString(PodcastRenderer({
-  //   //   podcast: this,
-  //   // }))
-
-  //   return renderToString(Counter())
-  // }
-
-  public async render() {
-    const react = await component()
-    console.log(react)
-
-    return '<div>component</div>'
-
-    // return renderToString(PodcastRenderer({
-    //   podcast: this,
-    // }))
+  public render(): string {
+    return renderToString(PodcastRenderer({
+      podcast: this,
+    }))
   }
 
   public toArray(): Record<string, any> {

@@ -3,7 +3,7 @@ import { getQuery } from 'h3'
 import { ofetch } from 'ofetch'
 import { XMLParser, XMLValidator } from 'fast-xml-parser'
 import { Podcast } from '../models/Podcast'
-import type { Channel } from '~/types'
+import type { Channel } from '../types'
 
 export class Renderer {
   protected constructor(
@@ -47,11 +47,11 @@ export class Renderer {
     return this.error
   }
 
-  public async getRender(): Promise<string | undefined> {
+  public getRender(): string | undefined {
     if (!this.podcast)
-      return undefined
+      this.error = 'No podcast found'
 
-    return await this.podcast.render()
+    return this.podcast?.render()
   }
 
   private async fetch(): Promise<any> {

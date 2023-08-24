@@ -4,6 +4,7 @@ export default <Options>{
   entryPoints: [
     'src/*.ts',
   ],
+  outDir: 'dist',
   clean: true,
   minify: true,
   format: ['cjs', 'esm'],

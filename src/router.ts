@@ -41,7 +41,7 @@ export const router = createRouter()
     }
 
     return {
-      html: await renderer.getRender(),
+      html: renderer.getRender(),
     }
   }))
   .get('/api/json', eventHandler(async (event) => {

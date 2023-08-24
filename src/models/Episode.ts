@@ -1,4 +1,4 @@
-import type { ChannelItem } from '~/types'
+import type { ChannelItem } from '../types'
 
 export class Episode {
   protected constructor(

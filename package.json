@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "listhen ./dist/index.js",
+    "dev:node": "ts-node ./src/node.ts",
     "dev": "listhen -w ./src/index.ts",
     "build": "tsup",
     "build:fix": "esno scripts/postbuild.ts",
@@ -23,7 +24,8 @@
     "listhen": "^1.3.0",
     "ofetch": "^1.3.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.40.2",

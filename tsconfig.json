@@ -5,16 +5,22 @@
     "lib": ["esnext", "DOM"],
     "moduleResolution": "node",
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "jsx": "react-jsx",
     "strict": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
+    "types": ["node"],
     "paths": {
       "~/*": ["./src/*"],
       "@/*": ["./*"]
-    },
-    "include": ["src/**/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   }
 }
