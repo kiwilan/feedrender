@@ -6,7 +6,7 @@
 [![License][license-src]][license-href]
 [![tests][tests-src]][tests-href]
 
-Node.js application to render HTML from RSS feed.
+Node.js application to render HTML from RSS feed. Built for Podcasts, powered by [h3][h3-version-href].
 
 ## Setup
 
