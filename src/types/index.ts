@@ -2,9 +2,9 @@ export interface Channel {
   title?: string
   link?: string
   'atom:link'?: {
-    '@_href': 'http://app.p1pdd.test/rss/p1pdd?render=1'
-    '@_rel': 'self'
-    '@_type': 'application/rss+xml'
+    '@_href': string
+    '@_rel': string
+    '@_type': string
   }
   'itunes:subtitle'?: string
   description?: string
@@ -15,6 +15,7 @@ export interface Channel {
   copyright?: string
   lastBuildDate?: string
   pubDate?: string
+  webMaster?: string
   generator?: string
   'itunes:keywords'?: string
   'dc:creator'?: string
@@ -28,13 +29,13 @@ export interface Channel {
   'itunes:explicit'?: string
   'googleplay:explicit'?: string
   'itunes:type'?: string
-  image?: {
-    url?: string
-    title?: string
-    link?: string
+  image?: ChannelImage
+  'itunes:image'?: {
+    '@_href': string
   }
-  'itunes:image'?: string
-  'googleplay:image'?: string
+  'googleplay:image'?: {
+    '@_href': string
+  }
   guid?: string
   category: string[]
   'itunes:category'?: {
@@ -44,6 +45,12 @@ export interface Channel {
     }
   }[]
   item: ChannelItem[]
+}
+
+export interface ChannelImage {
+  url?: string
+  title?: string
+  link?: string
 }
 
 export interface ChannelItem {

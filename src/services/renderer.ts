@@ -1,5 +1,3 @@
-import type { H3Event } from 'h3'
-import { getQuery } from 'h3'
 import { ofetch } from 'ofetch'
 import { XMLParser, XMLValidator } from 'fast-xml-parser'
 import { Podcast } from '../models/Podcast'
@@ -7,25 +5,32 @@ import type { Channel } from '../types'
 
 export class Renderer {
   protected constructor(
-    protected readonly event: H3Event,
     protected readonly query: Record<string, string>,
     protected url?: string,
+    protected xml?: string,
     protected channel?: Channel,
     protected podcast?: Podcast,
     protected error?: string,
   ) {}
 
-  public static async make(event: H3Event): Promise<Renderer> {
-    const query = getQuery(event) as Record<string, string>
-
-    const self = new this(event, query)
+  public static async make(query: any | Record<string, string>): Promise<Renderer> {
+    const self = new this(query)
     if (!query.url) {
       self.error = 'Missing url query parameter'
       return self
     }
 
     self.url = query.url as string
+
+    try {
+      const base64 = atob(self.url)
+      self.url = base64
+    }
+    catch (error) {
+    }
+
     const res = await self.fetch()
+
     self.parseXml(res)
 
     return self
@@ -33,6 +38,10 @@ export class Renderer {
 
   public getUrl(): string | undefined {
     return this.url
+  }
+
+  public getXml(): string | undefined {
+    return this.xml
   }
 
   public getChannel(): Channel | undefined {
@@ -67,6 +76,8 @@ export class Renderer {
     const parser = new XMLParser({
       ignoreAttributes: false,
     })
+
+    this.xml = res
     const xml = parser.parse(res)
     this.channel = xml.rss.channel
     if (this.channel)

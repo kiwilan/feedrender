@@ -17,3 +17,4 @@ src/metadata.json
 /src/dotenv.d.ts
 screen*.png
 /src/public/downloads
+/coverage
