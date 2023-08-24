@@ -10,13 +10,21 @@ Node.js application to render HTML from RSS feed. Built for Podcasts, powered by
 
 ## Setup
 
+Download dependencies
+
 ```bash
 pnpm i
 ```
 
+Create `.env` file
+
 ```bash
 cp .env.example .env
 ```
+
+## Development
+
+Run dev server
 
 ```bash
 pnpm dev
@@ -24,38 +32,10 @@ pnpm dev
 
 ## Build
 
-In `.env`:
-
-```bash
-LOG_LEVEL=error      # debug | error | fatal  | info | trace | warn | silent
-
-PORT=3000 # pm2 port
-BASE_URL=domain.com
-HTTPS=true
-```
+Build application
 
 ```bash
 pnpm build
-```
-
-### Nginx
-
-```bash
-server {
-  listen 80;
-  listen [::]:80;
-  server_name api.domain.com;
-
-  charset utf-8;
-
-  error_log /var/log/nginx/api.log warn;
-  access_log /var/log/nginx/api.log;
-
-  location / {
-    include proxy_params;
-    proxy_pass http://localhost:3000; # pm2 port
-  }
-}
 ```
 
 ## License
