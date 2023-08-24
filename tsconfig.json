@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["esnext", "DOM"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./*"]
+    },
+    "include": ["src/**/*"]
+  }
+}
