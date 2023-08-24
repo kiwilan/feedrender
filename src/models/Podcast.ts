@@ -14,6 +14,11 @@ export class Podcast {
     },
     protected link?: string,
     protected rss?: string,
+    protected author?: string,
+    protected owner?: {
+      name?: string
+      email?: string
+    },
     protected language?: string,
     protected copyright?: string,
     protected lastBuildDate?: string,
@@ -34,6 +39,11 @@ export class Podcast {
     self.image = channel.image
     self.link = channel.link
     self.rss = channel['atom:link']?.['@_href']
+    self.author = channel['itunes:author']
+    self.owner = {
+      name: channel['itunes:owner']?.['itunes:name'],
+      email: channel['itunes:owner']?.['itunes:email'],
+    }
     self.language = channel.language
     self.copyright = channel.copyright
     self.lastBuildDate = channel.lastBuildDate
@@ -79,6 +89,17 @@ export class Podcast {
 
   public getRss(): string | undefined {
     return this.rss
+  }
+
+  public getAuthor(): string | undefined {
+    return this.author
+  }
+
+  public getOwner(): {
+    name?: string
+    email?: string
+  } | undefined {
+    return this.owner
   }
 
   public getLanguage(): string | undefined {
