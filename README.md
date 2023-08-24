@@ -64,10 +64,7 @@ server {
 
 [h3-version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=dependencies['h3']&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
 [h3-version-href]: https://github.com/unjs/h3
-
-<!-- [codecov-src]: https://img.shields.io/codecov/c/gh/kiwilan/feed-renderer/main?style=flat&colorA=18181B&colorB=F0DB4F -->
-
-[codecov-src]: https://codecov.io/gh/kiwilan/feed-renderer/graph/badge.svg?token=fjmkWZZIyR
+[codecov-src]: https://img.shields.io/codecov/c/gh/kiwilan/feed-renderer/main?style=flat&colorA=18181B&colorB=F0DB4F
 [codecov-href]: https://codecov.io/gh/kiwilan/feed-renderer
 [license-src]: https://img.shields.io/github/license/kiwilan/feed-renderer.svg?style=flat&colorA=18181B&colorB=F0DB4F
 [license-href]: https://github.com/kiwilan/feed-renderer/blob/main/LICENSE
