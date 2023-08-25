@@ -1,0 +1,12 @@
+---
+version: "3"
+services:
+  feed_renderer:
+    container_name: feed_renderer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:3000"
+    env_file: .env
+    restart: always
