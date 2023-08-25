@@ -7,6 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "${EXPOSE_PORT}:${PORT}"
+      - "${DOCKER_COMPOSE_PORT}:${PORT}"
     env_file: .env
     restart: always
