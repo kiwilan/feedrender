@@ -10,4 +10,7 @@ export default <Options>{
   format: ['cjs', 'esm'],
   dts: false,
   onSuccess: 'npm run build:fix',
+  env: {
+    NODE_ENV: 'production',
+  },
 }

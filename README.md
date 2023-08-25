@@ -17,7 +17,7 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
 
 ### Docker
 
-You can use `docker-compose` or `docker` to run the application.
+You can use `docker compose` or `docker` to run the application.
 
 #### Docker compose
 
@@ -30,7 +30,7 @@ cp .env.example .env
 Docker compose will use the `.env` file to set environment variables.
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 #### Docker image
@@ -38,8 +38,8 @@ docker-compose up -d
 Build and run the docker image
 
 ```bash
-docker build -t feed-renderer .
-docker run -it -p 3000:3000 feed-renderer
+docker build -t feed_renderer:app .
+docker run -it -p 3000:3000 feed_renderer:app
 ```
 
 ### Local

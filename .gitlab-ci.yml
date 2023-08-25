@@ -9,7 +9,7 @@ stages:
 
 variables:
   NODE_VERSION: "18.17.0"
-  PM2: "servant"
+  PM2: "feed-renderer"
 
 deploy-job:
   stage: deploy
@@ -29,7 +29,6 @@ deploy-job:
       git pull &&
       /home/$SSH_USER/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
       /home/$SSH_USER/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
-      pm2 restart $PM2 &&
       notifier '$CI_PROJECT_TITLE deployed'"
   only:
     - main

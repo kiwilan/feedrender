@@ -13,7 +13,6 @@ RUN pnpm build
 
 ENV PORT=3000
 ENV HOST=0.0.0.0
-ENV ENV=development
 ENV HTTPS=false
 
 EXPOSE 3000

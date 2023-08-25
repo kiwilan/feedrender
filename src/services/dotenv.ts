@@ -1,3 +1,4 @@
+/* eslint-disable n/prefer-global/process */
 import 'dotenv/config'
 
 interface IDotenv {
@@ -6,22 +7,20 @@ interface IDotenv {
   HTTPS: boolean
   BASE_URL: string
   IS_DEV: boolean
+  NODE_ENV?: string
 }
 
 export class Dotenv {
   public static load(): IDotenv {
-    // eslint-disable-next-line n/prefer-global/process
-    const current = process
-
-    let port = current.env.PORT ?? 3000
+    let port = process.env.PORT ?? 3000
     port = Number(port)
-    const host = current.env.HOST ?? 'localhost'
-    const https = current.env.HTTPS === 'true'
+    const host = process.env.HOST ?? '0.0.0.0'
+    const https = process.env.HTTPS === 'true'
     const prefix = https ? 'https' : 'http'
-    const isDev = current.env.ENV === 'development'
+    const isProduction = process.env.NODE_ENV === 'production'
 
     let baseURL = `${prefix}://${host}`
-    if (isDev)
+    if (!isProduction)
       baseURL = `${baseURL}:${port}`
 
     return {
@@ -29,7 +28,8 @@ export class Dotenv {
       HOST: host,
       HTTPS: https,
       BASE_URL: baseURL,
-      IS_DEV: isDev,
+      NODE_ENV: process.env.NODE_ENV,
+      IS_DEV: !isProduction,
     }
   }
 }
