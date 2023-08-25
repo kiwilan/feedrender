@@ -9,7 +9,7 @@ RUN apk add git
 COPY . /usr/src/app/
 RUN npm install -g pnpm
 RUN pnpm install
-RUN pnpm build
+RUN if [ -d "dist" ]; then echo dist/ exists ; else pnpm build ; fi
 
 ENV PORT=3000
 ENV HOST=0.0.0.0
