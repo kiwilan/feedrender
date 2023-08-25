@@ -54,7 +54,7 @@ export const router = createRouter()
     if (query?.html === 'true') {
       return {
         url: renderer.getUrl(),
-        data: renderer.getRender(),
+        data: await renderer.getRender(),
         date: new Date().toISOString(),
       }
     }
@@ -79,5 +79,5 @@ export const router = createRouter()
       return renderer.getXml()
     }
 
-    return renderer.getRender()
+    return await renderer.getRender()
   }))

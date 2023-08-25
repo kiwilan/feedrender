@@ -1,5 +1,4 @@
-import { renderToString } from 'react-dom/server'
-import { PodcastRenderer } from '../react'
+import { createDom } from '../components'
 import type { Channel } from '../types'
 import { Episode } from './Episode'
 
@@ -84,8 +83,12 @@ export class Podcast {
     return self
   }
 
-  public render(): string {
-    const component = PodcastRenderer({ podcast: this })
-    return `<!DOCTYPE html>${renderToString(component)}`
+  public async render(): Promise<string> {
+    return await createDom({
+      name: 'podcast-renderer',
+      props: {
+        podcast: this,
+      },
+    })
   }
 }

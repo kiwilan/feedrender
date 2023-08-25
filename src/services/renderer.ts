@@ -56,11 +56,11 @@ export class Renderer {
     return this.error
   }
 
-  public getRender(): string | undefined {
+  public async getRender(): Promise<string | undefined> {
     if (!this.podcast)
       this.error = 'No podcast found'
 
-    return this.podcast?.render()
+    return await this.podcast?.render()
   }
 
   private async fetch(): Promise<any> {
