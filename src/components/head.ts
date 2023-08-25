@@ -29,10 +29,10 @@ export default {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1',
       }),
-      h('meta', {
-        name: 'apple-itunes-app',
-        content: 'app-id=993490336',
-      }),
+      // h('meta', {
+      //   name: 'apple-itunes-app',
+      //   content: 'app-id=993490336',
+      // }),
       h('title', props.title),
       h('link', {
         rel: 'alternate',

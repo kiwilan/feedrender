@@ -32,17 +32,33 @@ Default behavior is to return HTML as page. You can use query parameters to chan
 
 Query parameters
 
-| Name   | Required | Description                                                        |
-| ------ | -------- | ------------------------------------------------------------------ |
-| `url`  | true     | URL of RSS feed, allow base64 URL                                  |
-| `html` | false    | Return JSON response with HTML as string                           |
-| `json` | false    | Return JSON response with `Podcast` object, it represents RSS feed |
-| `xml`  | false    | Return XML response with RSS feed                                  |
+| Name     | Required | Type                  | Default     | Description                                                                                                                                   |
+| -------- | -------- | --------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `url`    | true     | `string`              | `undefined` | URL of RSS feed, allow base64 URL                                                                                                             |
+| `format` | false    | `html`, `json`, `xml` | `html`      | Type of response, default `html` will render HTML page, `json` will give JSON response with HTML string and `xml` will give original RSS feed |
 
 > [!WARNING]\
 > If crawler is not a browser, response will be original XML feed.
 
-Example: <https://feed-renderer.git-projects.xyz/api/renderer?url=https://feeds.acast.com/public/shows/game-of-roles-magic>
+Example: <https://feed-renderer.git-projects.xyz/api/renderer?url=https://2hdp.fr/2HDP.xml>
+
+### Parser
+
+To parse RSS feed, you can use the `/parser` endpoint.
+
+```bash
+/api/parser
+```
+
+Return a JSON response with `Podcast` object represent RSS feed.
+
+Query parameters
+
+| Name  | Required | Type     | Default     | Description                       |
+| ----- | -------- | -------- | ----------- | --------------------------------- |
+| `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
+
+Example: <https://feed-renderer.git-projects.xyz/api/parser?url=https://2hdp.fr/2HDP.xml>
 
 ## Installation
 
@@ -118,6 +134,13 @@ Run tests
 ```bash
 pnpm test
 ```
+
+## Roadmap
+
+- [x] Render RSS feed
+- [ ] Add option for apple podcast banner
+- [ ] Add color customization
+- [ ] Add multiple feeds options
 
 ## Credits
 

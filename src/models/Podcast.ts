@@ -1,10 +1,12 @@
 import { renderDom } from '../components'
 import type { Channel } from '../types'
+import { Dotenv } from '../services'
 import { Episode } from './Episode'
 
 export class Podcast {
   protected constructor(
     public feedUrl: string,
+    public xmlRenderUrl: string,
     public title?: string,
     public description?: string,
     public image?: string,
@@ -32,7 +34,9 @@ export class Podcast {
   ) {}
 
   public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
-    const self = new this(feedUrl)
+    const dotenv = Dotenv.load()
+    const xmlRenderUrl = `${dotenv.BASE_URL}/api/renderer?url=${feedUrl}&xml=true`
+    const self = new this(feedUrl, xmlRenderUrl)
 
     self.title = channel.title
     self.description = channel.description

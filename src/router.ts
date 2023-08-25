@@ -29,18 +29,45 @@ export const router = createRouter()
         renderer: {
           url: `${dotenv.BASE_URL}/api/renderer`,
           query: {
-            default: 'This endpoint will return HTML render from XML RSS feed, if User-Agent is not a browser, it will return XML RSS feed',
             url: '`string`, required, url to RSS feed (could be base64 encoded)',
-            html: '`boolean`, default: `false`, return HTML data into JSON response',
-            json: '`boolean`, default: `false`, return Podcast object into JSON response',
-            xml: '`boolean`, default: `false`, return XML RSS feed',
+            format: '`html`, `json` or `xml`, optional, default `html`, type of response, default `html` will render HTML page, `json` will give JSON response with HTML string and `xml` will give original RSS feed',
           },
-          about: 'Render HTML from RSS feed',
+          about: 'Render HTML from RSS feed. If User-Agent is not a browser, it will return XML RSS feed',
         },
       },
     }
   }))
   .get('/api/renderer', eventHandler(async (event) => {
+    const query = getQuery(event)
+    const format = query.format || 'html'
+    const lang = event.node.req.headers['accept-language'] || 'en-US'
+    const renderer = await Renderer.make(query, lang)
+    const error = renderer.getError()
+
+    if (error) {
+      return {
+        error,
+      }
+    }
+
+    if (format === 'json') {
+      return {
+        url: renderer.getUrl(),
+        data: await renderer.getRender(),
+        date: new Date().toISOString(),
+      }
+    }
+
+    if (format === 'xml' || !isBrowser(event.node.req.headers['user-agent'])) {
+      event.node.res.setHeader('Content-Type', 'text/xml')
+
+      return renderer.getXml()
+    }
+
+    return await renderer.getRender()
+  }))
+
+  .get('/api/parser', eventHandler(async (event) => {
     const query = getQuery(event)
     const lang = event.node.req.headers['accept-language'] || 'en-US'
     const renderer = await Renderer.make(query, lang)
@@ -52,33 +79,9 @@ export const router = createRouter()
       }
     }
 
-    if (query?.html === 'true') {
-      return {
-        url: renderer.getUrl(),
-        data: await renderer.getRender(),
-        date: new Date().toISOString(),
-      }
+    return {
+      url: renderer.getUrl(),
+      data: renderer.getPodcast(),
+      date: new Date().toISOString(),
     }
-
-    if (query.json === 'true') {
-      return {
-        url: renderer.getUrl(),
-        data: renderer.getPodcast(),
-        date: new Date().toISOString(),
-      }
-    }
-
-    if (query.xml === 'true') {
-      event.node.res.setHeader('Content-Type', 'text/xml')
-
-      return renderer.getXml()
-    }
-
-    if (!isBrowser(event.node.req.headers['user-agent'])) {
-      event.node.res.setHeader('Content-Type', 'text/xml')
-
-      return renderer.getXml()
-    }
-
-    return await renderer.getRender()
   }))
