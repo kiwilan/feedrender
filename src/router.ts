@@ -42,6 +42,7 @@ export const router = createRouter()
           about: 'Parse RSS feed and return JSON',
         },
       },
+      github: 'https://github.com/kiwilan/feedrender',
     }
   }))
   .get('/api/render', eventHandler(async (event) => {
