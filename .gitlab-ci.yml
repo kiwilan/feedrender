@@ -27,8 +27,8 @@ deploy-job:
       . ~/.zshrc &&
       cd /home/$SSH_USER/www/$CI_PROJECT_NAME &&
       git pull &&
-      /home/$SSH_USER/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
-      /home/$SSH_USER/.nvm/versions/node/v$NODE_VERSION/bin/pnpm build &&
+      docker compose down &&
+      docker compose up -d &&
       notifier '$CI_PROJECT_TITLE deployed'"
   only:
     - main
