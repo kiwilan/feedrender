@@ -35,7 +35,7 @@ export class Podcast {
 
   public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
     const dotenv = Dotenv.load()
-    const xmlRenderUrl = `${dotenv.BASE_URL}/api/renderer?url=${feedUrl}&xml=true`
+    const xmlRenderUrl = `${dotenv.BASE_URL}/api/renderer?url=${feedUrl}&format=xml`
     const self = new this(feedUrl, xmlRenderUrl)
 
     self.title = channel.title
