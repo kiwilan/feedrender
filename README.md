@@ -53,7 +53,7 @@ You can use PM2 to run application in production.
 
 [BSD 2-Clause](LICENSE)
 
-[version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=version&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
+[version-src]: https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
 [version-href]: https://github.com/kiwilan/feed-renderer/releases
 
 [h3-version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=dependencies['h3']&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
