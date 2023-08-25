@@ -33,7 +33,7 @@ export default {
       ]),
       h('div', { class: 'header-block' }, [
         h('div', { class: 'header-block__img' }, [
-          h('img', { src: props.podcast?.image, alt: props.podcast?.title }),
+          h('img', { src: props.podcast?.image, alt: props.podcast?.title, loading: 'lazy' }),
         ]),
         h('div', { class: 'header-block__title' }, [
           h('h1', [props.podcast?.title]),
@@ -48,7 +48,7 @@ export default {
           h('span', {}, [subscribe[props.podcast?.lang || 'default']]),
         ]),
       ]),
-      h('img', { class: 'header-block__bg', src: props.podcast?.image }),
+      h('img', { class: 'header-block__bg', src: props.podcast?.image, loading: 'lazy' }),
       h('div', { class: 'header-block__overlay' }),
     ])
   },
