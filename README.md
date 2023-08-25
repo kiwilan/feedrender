@@ -1,12 +1,13 @@
 # Feed renderer
 
+[![version][version-src]][version-href]
 [![h3][h3-version-src]][h3-version-href]
 [![node][node-version-src]][node-version-href]
 [![Codecov][codecov-src]][codecov-href]
 [![License][license-src]][license-href]
 [![tests][tests-src]][tests-href]
 
-Node.js application to render HTML from RSS feed. Built for Podcasts, powered by [h3][h3-version-href].
+API to render HTML from RSS feed. Built for Podcasts, powered by [h3][h3-version-href].
 
 ## Setup
 
@@ -27,8 +28,10 @@ cp .env.example .env
 Run dev server
 
 ```bash
-pnpm dev
+pnpm dev:node
 ```
+
+Go to [localhost:3000](http://localhost:3000)
 
 ## Build
 
@@ -38,9 +41,20 @@ Build application
 pnpm build
 ```
 
+Local preview
+
+```bash
+pnpm start
+```
+
+You can use PM2 to run application in production.
+
 ## License
 
 [BSD 2-Clause](LICENSE)
+
+[version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=version&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
+[version-href]: https://github.com/kiwilan/feed-renderer/releases
 
 [h3-version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=dependencies['h3']&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
 [h3-version-href]: https://github.com/unjs/h3
