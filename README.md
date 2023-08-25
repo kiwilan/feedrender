@@ -7,9 +7,9 @@
 [![License][license-src]][license-href]
 [![tests][tests-src]][tests-href]
 
-API to render HTML from RSS feed. Built for Podcasts, powered by [h3][h3-version-href].
+API to render HTML from RSS feed. Built for podcast feeds, powered by [unjs/h3][h3-version-href].
 
-## Setup
+## Local
 
 Download dependencies
 
@@ -22,8 +22,6 @@ Create `.env` file
 ```bash
 cp .env.example .env
 ```
-
-## Development
 
 Run dev server
 
@@ -48,6 +46,20 @@ pnpm start
 ```
 
 You can use PM2 to run application in production.
+
+## Tests
+
+Run tests
+
+```bash
+pnpm test
+```
+
+## Credits
+
+- [`unjs`][https://github.com/unjs]: for `unjs/h3`, `unjs/ofetch` and `unjs/listhen`
+- [`fast-xml-parser`](https://github.com/NaturalIntelligence/fast-xml-parser): for XML parsing
+- [`vue`](https://github.com/vuejs/core): for render functions used to render HTML
 
 ## License
 
