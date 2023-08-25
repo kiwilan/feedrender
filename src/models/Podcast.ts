@@ -1,4 +1,4 @@
-import { createDom } from '../components'
+import { renderDom } from '../components'
 import type { Channel } from '../types'
 import { Episode } from './Episode'
 
@@ -89,7 +89,7 @@ export class Podcast {
   }
 
   public async render(): Promise<string> {
-    return await createDom({
+    return await renderDom({
       props: {
         podcast: this,
       },

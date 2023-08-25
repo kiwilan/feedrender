@@ -1,4 +1,4 @@
-import { defineProps, h } from 'vue'
+import { h } from 'vue'
 
 interface Props {
   title?: string
@@ -6,7 +6,16 @@ interface Props {
 }
 
 export default {
-  props: defineProps<Props>(),
+  props: {
+    title: {
+      type: String,
+      required: false,
+    },
+    css: {
+      type: String,
+      required: false,
+    },
+  },
   setup(props: Props) {
     return h('head', [
       h('meta', {

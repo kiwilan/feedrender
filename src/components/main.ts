@@ -1,4 +1,5 @@
-import { defineProps, h } from 'vue'
+import type { PropType } from 'vue'
+import { h } from 'vue'
 import type { Podcast } from '~/models/Podcast'
 
 interface Props {
@@ -6,7 +7,12 @@ interface Props {
 }
 
 export default {
-  props: defineProps<Props>(),
+  props: {
+    podcast: {
+      type: Object as PropType<Podcast>,
+      required: true,
+    },
+  },
   setup(props: Props) {
     const published = {
       en: 'Published',

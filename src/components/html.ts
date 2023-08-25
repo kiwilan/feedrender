@@ -1,4 +1,5 @@
-import { defineProps, h } from 'vue'
+import type { PropType } from 'vue'
+import { h } from 'vue'
 import head from './head'
 import body from './body'
 import type { Podcast } from '~/models/Podcast'
@@ -9,7 +10,16 @@ interface Props {
 }
 
 export default {
-  props: defineProps<Props>(),
+  props: {
+    podcast: {
+      type: Object as PropType<Podcast>,
+      required: true,
+    },
+    css: {
+      type: String,
+      required: false,
+    },
+  },
   setup(props: Props) {
     return h('html', {
       lang: props.podcast.language,

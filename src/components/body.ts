@@ -1,4 +1,5 @@
-import { defineProps, h } from 'vue'
+import type { PropType } from 'vue'
+import { h } from 'vue'
 import header from './header'
 import main from './main'
 import type { Podcast } from '~/models/Podcast'
@@ -8,7 +9,12 @@ interface Props {
 }
 
 export default {
-  props: defineProps<Props>(),
+  props: {
+    podcast: {
+      type: Object as PropType<Podcast>,
+      required: true,
+    },
+  },
   setup(props: Props) {
     return h('body', [
       header.setup({ podcast: props.podcast }),

@@ -11,7 +11,7 @@ interface Options {
   }
 }
 
-async function createDom(options: Options): Promise<string> {
+async function renderDom(options: Options): Promise<string> {
   const css = await readFile(`${cwd()}/src/components/feed.css`, 'utf-8')
   options.props.css = css
 
@@ -21,5 +21,5 @@ async function createDom(options: Options): Promise<string> {
 }
 
 export {
-  createDom,
+  renderDom,
 }
