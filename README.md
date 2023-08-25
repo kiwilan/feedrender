@@ -18,6 +18,34 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
 
 ## Usage
 
+Feed renderer API offers some endpoints to execute different tasks.
+
+### Render feed
+
+To render RSS feed, you can use the `/renderer` endpoint.
+
+```bash
+/api/renderer
+```
+
+Default behavior is to return HTML as page. You can use query parameters to change the response.
+
+Query parameters
+
+| Name   | Required | Description                                                        |
+| ------ | -------- | ------------------------------------------------------------------ |
+| `url`  | true     | URL of RSS feed, allow base64 URL                                  |
+| `html` | false    | Return JSON response with HTML as string                           |
+| `json` | false    | Return JSON response with `Podcast` object, it represents RSS feed |
+| `xml`  | false    | Return XML response with RSS feed                                  |
+
+> [!WARNING]\
+> If crawler is not a browser, response will be original XML feed.
+
+Example: <https://feed-renderer.git-projects.xyz/api/renderer?url=https://feeds.acast.com/public/shows/game-of-roles-magic>
+
+## Installation
+
 ### Docker
 
 You can use `docker compose` or `docker` to run the application.
