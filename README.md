@@ -13,15 +13,19 @@ API to render HTML from RSS feed. Built for podcast feeds, powered by [unjs/h3][
 
 Some podcast services offer a RSS feed with HTML render if RSS feed is requested from a browser. These services (Acast, Ausha) are not open source and not free. This project is an attempt to create an open source alternative.
 
-## Docker
+## Usage
+
+### Docker
+
+You can use `docker-compose` or `docker` to run the application.
+
+#### Docker compose
+
+Create `.env` file
 
 ```bash
 cp .env.example .env
 ```
-
-You can use `docker-compose` or `docker` to run the application.
-
-### Docker compose
 
 Docker compose will use the `.env` file to set environment variables.
 
@@ -29,7 +33,7 @@ Docker compose will use the `.env` file to set environment variables.
 docker-compose up -d
 ```
 
-### Docker image
+#### Docker image
 
 Build and run the docker image
 
@@ -38,7 +42,7 @@ docker build -t feed-renderer .
 docker run -it -p 3000:3000 feed-renderer
 ```
 
-## Local
+### Local
 
 Download dependencies
 
@@ -60,7 +64,7 @@ pnpm dev
 
 Go to [localhost:3000](http://localhost:3000)
 
-## Build
+### Build
 
 Build application
 
