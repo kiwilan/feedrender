@@ -17,4 +17,4 @@ ENV HTTPS=false
 
 EXPOSE 3000
 
-CMD [ "pnpm", "start" ]
+CMD [ "pnpm", "start:tsx" ]
