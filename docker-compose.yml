@@ -1,8 +1,8 @@
 ---
 version: "3"
 services:
-  feed_renderer:
-    container_name: app
+  app:
+    container_name: feed-renderer
     build:
       context: .
       dockerfile: Dockerfile

@@ -38,8 +38,8 @@ docker compose up -d
 Build and run the docker image
 
 ```bash
-docker build -t feed-renderer-feed_renderer:latest .
-docker run -it -p 3000:3000 feed-renderer-feed_renderer:latest
+docker build -t feed-renderer-app:latest .
+docker run -it -p 3000:3000 feed-renderer-app:latest
 ```
 
 ### Local
