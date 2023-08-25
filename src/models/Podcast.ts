@@ -4,6 +4,7 @@ import { Episode } from './Episode'
 
 export class Podcast {
   protected constructor(
+    public feedUrl: string,
     public title?: string,
     public description?: string,
     public image?: string,
@@ -14,8 +15,10 @@ export class Podcast {
       name?: string
       email?: string
     },
-    public language?: string,
+    public lang: string = 'en',
+    public language: string = 'en-US',
     public copyright?: string,
+    public copyrightText?: string,
     public lastBuildDate?: string,
     public pubDate?: string,
     public webMaster?: string,
@@ -28,8 +31,8 @@ export class Podcast {
     public episodes?: Episode[],
   ) {}
 
-  public static make(channel: Channel): Podcast {
-    const self = new this()
+  public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
+    const self = new this(feedUrl)
 
     self.title = channel.title
     self.description = channel.description
@@ -48,8 +51,10 @@ export class Podcast {
       name: channel['itunes:owner']?.['itunes:name'],
       email: channel['itunes:owner']?.['itunes:email'],
     }
-    self.language = channel.language
+    self.lang = lang
+    self.language = channel.language || lang
     self.copyright = channel.copyright
+    self.copyrightText = self.setCopyrightText()
     self.lastBuildDate = channel.lastBuildDate
     self.pubDate = channel.pubDate
     self.webMaster = channel.webMaster
@@ -77,7 +82,7 @@ export class Podcast {
 
     self.episodes = []
     channel.item?.forEach((item) => {
-      self.episodes?.push(Episode.make(item))
+      self.episodes?.push(Episode.make(item, self.lang))
     })
 
     return self
@@ -89,5 +94,17 @@ export class Podcast {
         podcast: this,
       },
     })
+  }
+
+  private setCopyrightText(): string {
+    const copyrights = {
+      en: 'All rights reserved',
+      fr: 'Tous droits réservés',
+      default: 'All rights reserved',
+    }
+
+    const prefix: string = copyrights[this.lang || 'default']
+
+    return `${prefix} ${this.copyright}`
   }
 }

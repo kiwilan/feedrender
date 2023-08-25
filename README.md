@@ -28,7 +28,7 @@ cp .env.example .env
 Run dev server
 
 ```bash
-pnpm dev:node
+pnpm dev
 ```
 
 Go to [localhost:3000](http://localhost:3000)

@@ -6,6 +6,7 @@ import type { Channel } from '../types'
 export class Renderer {
   protected constructor(
     protected readonly query: Record<string, string>,
+    protected readonly lang: string,
     protected url?: string,
     protected xml?: string,
     protected channel?: Channel,
@@ -13,8 +14,12 @@ export class Renderer {
     protected error?: string,
   ) {}
 
-  public static async make(query: any | Record<string, string>): Promise<Renderer> {
-    const self = new this(query)
+  public static async make(query: any | Record<string, string>, lang: string = 'en-US'): Promise<Renderer> {
+    lang = lang.toLowerCase()
+    if (lang.includes('-'))
+      lang = lang.split('-')[0]
+
+    const self = new this(query, lang)
     if (!query.url) {
       self.error = 'Missing url query parameter'
       return self
@@ -81,7 +86,7 @@ export class Renderer {
     const xml = parser.parse(res)
     this.channel = xml.rss.channel
     if (this.channel)
-      this.podcast = Podcast.make(this.channel)
+      this.podcast = Podcast.make(this.url!, this.channel, this.lang)
 
     return this
   }

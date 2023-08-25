@@ -42,7 +42,8 @@ export const router = createRouter()
   }))
   .get('/api/renderer', eventHandler(async (event) => {
     const query = getQuery(event)
-    const renderer = await Renderer.make(query)
+    const lang = event.node.req.headers['accept-language'] || 'en-US'
+    const renderer = await Renderer.make(query, lang)
     const error = renderer.getError()
 
     if (error) {
