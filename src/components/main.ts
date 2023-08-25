@@ -31,7 +31,7 @@ export default {
         props.podcast?.episodes?.map((episode, id) => {
           return h('li', { key: id, class: 'item' }, [
             h('div', { class: 'item__title' }, [
-              h('div', [episode.image ? h('img', { src: episode.image, alt: episode.title }) : h('span')]),
+              h('div', [episode.image ? h('img', { src: episode.image, alt: episode.title, loading: 'lazy' }) : h('span')]),
               h('div', { class: 'item__title__text' }, [
                 h('a', { href: episode.link }, [
                   h('h2', {}, episode.title),
