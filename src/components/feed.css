@@ -40,8 +40,8 @@ header {
 
 .rss svg {
   fill: white;
-  height: 2rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .header-block {
@@ -82,6 +82,10 @@ header {
 .header-block__description {
   margin-top: 1.25rem;
   line-height: 1.5rem;
+}
+
+.header-block__description a {
+  color: white !important;
 }
 
 .header-block__button {
