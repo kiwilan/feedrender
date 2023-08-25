@@ -3,7 +3,7 @@ import { XMLParser, XMLValidator } from 'fast-xml-parser'
 import { Podcast } from '../models/Podcast'
 import type { Channel } from '../types'
 
-export class Renderer {
+export class Parser {
   protected constructor(
     protected readonly query: Record<string, string>,
     protected readonly lang: string,
@@ -14,7 +14,7 @@ export class Renderer {
     protected error?: string,
   ) {}
 
-  public static async make(query: any | Record<string, string>, lang: string = 'en-US'): Promise<Renderer> {
+  public static async make(query: any | Record<string, string>, lang: string = 'en-US'): Promise<Parser> {
     lang = lang.toLowerCase()
     if (lang.includes('-'))
       lang = lang.split('-')[0]

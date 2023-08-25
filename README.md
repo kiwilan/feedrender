@@ -1,4 +1,4 @@
-# Feed renderer
+# Feedrender
 
 [![version][version-src]][version-href]
 [![h3][h3-version-src]][h3-version-href]
@@ -10,7 +10,7 @@
 API to render HTML from RSS feed. Built for podcast feeds, powered by [unjs/h3][h3-version-href].
 
 > [!NOTE]\
-> Demo is available at: [feed-renderer.git-projects.xyz](https://feed-renderer.git-projects.xyz/)
+> Demo is available at: [feedrender.git-projects.xyz](https://feedrender.git-projects.xyz/)
 
 ## About
 
@@ -18,22 +18,22 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
 
 ## Features
 
-- 🌻 Render RSS feed as HTML
-- 🔧 Option to return XML feed
-- 🗂️ Option to return JSON response with HTML as string
-- ✅ If crawler is not a browser, return original XML feed
-- 🗄️ Return a JSON response with RSS feed parsed as objects
+- 🌻 Render RSS feed as HTML on `/api/render` endpoint
+  - 🔧 Option to return XML feed
+  - 🗂️ Option to return JSON response with HTML as string
+  - ✅ If crawler is not a browser, return original XML feed
+- 🗄️ Return a JSON response with RSS feed parsed as objects on `/api/parser` endpoint
 
 ## Usage
 
-Feed renderer API offers some endpoints to execute different tasks.
+Feedrender API offers some endpoints to execute different tasks.
 
 ### Render feed
 
-To render RSS feed, you can use the `/renderer` endpoint.
+To render RSS feed, you can use the `/render` endpoint.
 
 ```bash
-/api/renderer
+/api/render
 ```
 
 Default behavior is to return HTML as page. You can use query parameters to change the response.
@@ -48,7 +48,7 @@ Query parameters
 > [!WARNING]\
 > If crawler is not a browser, response will be original XML feed.
 
-Example: <https://feed-renderer.git-projects.xyz/api/renderer?url=https://2hdp.fr/2HDP.xml>
+Example: <https://feedrender.git-projects.xyz/api/render?url=https://2hdp.fr/2HDP.xml>
 
 ### Parser
 
@@ -66,7 +66,7 @@ Query parameters
 | ----- | -------- | -------- | ----------- | --------------------------------- |
 | `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
 
-Example: <https://feed-renderer.git-projects.xyz/api/parser?url=https://2hdp.fr/2HDP.xml>
+Example: <https://feedrender.git-projects.xyz/api/parser?url=https://2hdp.fr/2HDP.xml>
 
 ## Installation
 
@@ -93,8 +93,8 @@ docker compose up -d
 Build and run the docker image
 
 ```bash
-docker build -t feed-renderer-app:latest .
-docker run -it -p 3000:3000 feed-renderer-app:latest
+docker build -t feedrender-app:latest .
+docker run -it -p 3000:3000 feedrender-app:latest
 ```
 
 ### Local
@@ -130,7 +130,7 @@ pnpm build
 Local preview
 
 ```bash
-pnpm start
+pnpm start:tsx
 ```
 
 You can use PM2 to run application in production.
@@ -151,6 +151,10 @@ pnpm test
 - [ ] Add multiple feeds options
 - [ ] Add registering and token
 - [ ] Add cache
+- [ ] Better error handling
+- [ ] Add tests
+- [ ] Better locale support
+- [ ] Add CORS support
 
 ## Credits
 
@@ -162,16 +166,16 @@ pnpm test
 
 [BSD 2-Clause](LICENSE)
 
-[version-src]: https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
-[version-href]: https://github.com/kiwilan/feed-renderer/releases
+[version-src]: https://img.shields.io/badge/dynamic/json?label=version&query=version&url=https://raw.githubusercontent.com/kiwilan/feedrender/main/package.json&colorA=18181B&colorB=F0DB4F
+[version-href]: https://github.com/kiwilan/feedrender/releases
 
-[h3-version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=dependencies['h3']&url=https://raw.githubusercontent.com/kiwilan/feed-renderer/main/package.json&colorA=18181B&colorB=F0DB4F
+[h3-version-src]: https://img.shields.io/badge/dynamic/json?label=h3&query=dependencies['h3']&url=https://raw.githubusercontent.com/kiwilan/feedrender/main/package.json&colorA=18181B&colorB=F0DB4F
 [h3-version-href]: https://github.com/unjs/h3
-[codecov-src]: https://img.shields.io/codecov/c/gh/kiwilan/feed-renderer/main?style=flat&colorA=18181B&colorB=F0DB4F
-[codecov-href]: https://codecov.io/gh/kiwilan/feed-renderer
-[license-src]: https://img.shields.io/github/license/kiwilan/feed-renderer.svg?style=flat&colorA=18181B&colorB=F0DB4F
-[license-href]: https://github.com/kiwilan/feed-renderer/blob/main/LICENSE
+[codecov-src]: https://img.shields.io/codecov/c/gh/kiwilan/feedrender/main?style=flat&colorA=18181B&colorB=F0DB4F
+[codecov-href]: https://codecov.io/gh/kiwilan/feedrender
+[license-src]: https://img.shields.io/github/license/kiwilan/feedrender.svg?style=flat&colorA=18181B&colorB=F0DB4F
+[license-href]: https://github.com/kiwilan/feedrender/blob/main/LICENSE
 [node-version-src]: https://img.shields.io/static/v1?label=Node.js&message=v16&style=flat&colorA=18181B&colorB=F0DB4F
 [node-version-href]: https://nodejs.org/en/
-[tests-src]: https://img.shields.io/github/actions/workflow/status/kiwilan/feed-renderer/run-tests.yml?branch=main&label=tests&style=flat&colorA=18181B
-[tests-href]: https://github.com/kiwilan/feed-renderer/actions/workflows/run-tests.yml
+[tests-src]: https://img.shields.io/github/actions/workflow/status/kiwilan/feedrender/run-tests.yml?branch=main&label=tests&style=flat&colorA=18181B
+[tests-href]: https://github.com/kiwilan/feedrender/actions/workflows/run-tests.yml

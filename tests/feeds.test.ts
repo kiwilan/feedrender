@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { Renderer } from '../src/services'
+import { Parser } from '../src/services'
 
 const feeds = [
   'https://feedpress.me/rdvjeux',
@@ -20,8 +20,8 @@ const feeds = [
 
 it('can use feeds', async () => {
   await Promise.all(feeds.map(async (feed) => {
-    const renderer = await Renderer.make({ url: feed })
-    const podcast = renderer.getPodcast()
+    const render = await Parser.make({ url: feed })
+    const podcast = render.getPodcast()
 
     expect(podcast).toBeDefined()
     expect(podcast?.title).toBeDefined()
@@ -37,7 +37,7 @@ it('can use feeds', async () => {
       expect(episode.pubDate).toBeDefined()
     })
 
-    const html = renderer.getRender()
+    const html = render.getRender()
     expect(html).toBeDefined()
   }))
 })

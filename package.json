@@ -1,8 +1,8 @@
 {
-  "name": "feed-renderer",
+  "name": "feedrender",
   "version": "0.0.1",
   "description": "API to render HTML from RSS feed. Built for podcast feeds, powered by unjs/h3.",
-  "homepage": "https://github.com/kiwilan/feed-renderer",
+  "homepage": "https://github.com/kiwilan/feedrender",
   "type": "module",
   "main": "index.js",
   "scripts": {

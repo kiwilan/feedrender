@@ -1,5 +1,5 @@
-import { createRouter, eventHandler, getQuery } from 'h3'
-import { Dotenv, Renderer } from './services'
+import { createRouter, eventHandler, getQuery, sendRedirect } from 'h3'
+import { Dotenv, Parser } from './services'
 
 function isBrowser(userAgent?: string): boolean {
   if (!userAgent)
@@ -15,7 +15,7 @@ export const router = createRouter()
       const dotenv = Dotenv.load()
 
       return {
-        message: 'Welcome on feed-renderer API',
+        message: 'Welcome on feedrender API',
         docs: `${dotenv.BASE_URL}/api`,
       }
     }),
@@ -24,10 +24,10 @@ export const router = createRouter()
     const dotenv = Dotenv.load()
 
     return {
-      message: 'Welcome on feed-renderer API',
+      message: 'Welcome on feedrender API',
       links: {
-        renderer: {
-          url: `${dotenv.BASE_URL}/api/renderer`,
+        render: {
+          url: `${dotenv.BASE_URL}/api/render`,
           query: {
             url: '`string`, required, url to RSS feed (could be base64 encoded)',
             format: '`html`, `json` or `xml`, optional, default `html`, type of response, default `html` will render HTML page, `json` will give JSON response with HTML string and `xml` will give original RSS feed',
@@ -44,12 +44,12 @@ export const router = createRouter()
       },
     }
   }))
-  .get('/api/renderer', eventHandler(async (event) => {
+  .get('/api/render', eventHandler(async (event) => {
     const query = getQuery(event)
     const format = query.format || 'html'
     const lang = event.node.req.headers['accept-language'] || 'en-US'
-    const renderer = await Renderer.make(query, lang)
-    const error = renderer.getError()
+    const parser = await Parser.make(query, lang)
+    const error = parser.getError()
 
     if (error) {
       return {
@@ -59,26 +59,29 @@ export const router = createRouter()
 
     if (format === 'json') {
       return {
-        url: renderer.getUrl(),
-        data: await renderer.getRender(),
+        url: parser.getUrl(),
+        data: await parser.getRender(),
         date: new Date().toISOString(),
       }
     }
 
-    if (format === 'xml' || !isBrowser(event.node.req.headers['user-agent'])) {
+    if (format === 'xml') {
       event.node.res.setHeader('Content-Type', 'text/xml')
 
-      return renderer.getXml()
+      return parser.getXml()
     }
 
-    return await renderer.getRender()
+    if (!isBrowser(event.node.req.headers['user-agent']))
+      sendRedirect(event, (query.url as string), 302)
+
+    return await parser.getRender()
   }))
 
   .get('/api/parser', eventHandler(async (event) => {
     const query = getQuery(event)
     const lang = event.node.req.headers['accept-language'] || 'en-US'
-    const renderer = await Renderer.make(query, lang)
-    const error = renderer.getError()
+    const render = await Parser.make(query, lang)
+    const error = render.getError()
 
     if (error) {
       return {
@@ -87,8 +90,8 @@ export const router = createRouter()
     }
 
     return {
-      url: renderer.getUrl(),
-      data: renderer.getPodcast(),
+      url: render.getUrl(),
+      data: render.getPodcast(),
       date: new Date().toISOString(),
     }
   }))

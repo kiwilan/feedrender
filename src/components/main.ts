@@ -42,7 +42,7 @@ export default {
             h('div', { class: 'description prose', innerHTML: episode.description }),
             h('hr'),
             h('div', { class: 'copyright' }, [
-              h('p', {}, props.podcast?.copyrightText),
+              h('p', {}, props.podcast?.copyright),
             ]),
             h('div', { class: 'download' }, [
               h('a', { href: episode.enclosure?.url, target: '_blank', download: true }, [

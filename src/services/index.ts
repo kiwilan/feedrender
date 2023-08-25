@@ -1,7 +1,7 @@
 import { Dotenv } from './dotenv'
-import { Renderer } from './renderer'
+import { Parser } from './parser'
 
 export {
   Dotenv,
-  Renderer,
+  Parser,
 }

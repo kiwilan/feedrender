@@ -20,7 +20,6 @@ export class Podcast {
     public lang: string = 'en',
     public language: string = 'en-US',
     public copyright?: string,
-    public copyrightText?: string,
     public lastBuildDate?: string,
     public pubDate?: string,
     public webMaster?: string,
@@ -35,7 +34,7 @@ export class Podcast {
 
   public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
     const dotenv = Dotenv.load()
-    const xmlRenderUrl = `${dotenv.BASE_URL}/api/renderer?url=${feedUrl}&format=xml`
+    const xmlRenderUrl = `${dotenv.BASE_URL}/api/render?url=${feedUrl}&format=xml`
     const self = new this(feedUrl, xmlRenderUrl)
 
     self.title = channel.title
@@ -58,7 +57,6 @@ export class Podcast {
     self.lang = lang
     self.language = channel.language || lang
     self.copyright = channel.copyright
-    self.copyrightText = self.setCopyrightText()
     self.lastBuildDate = channel.lastBuildDate
     self.pubDate = channel.pubDate
     self.webMaster = channel.webMaster
@@ -98,17 +96,5 @@ export class Podcast {
         podcast: this,
       },
     })
-  }
-
-  private setCopyrightText(): string {
-    const copyrights = {
-      en: 'All rights reserved',
-      fr: 'Tous droits réservés',
-      default: 'All rights reserved',
-    }
-
-    const prefix: string = copyrights[this.lang || 'default']
-
-    return `${prefix} ${this.copyright}`
   }
 }
