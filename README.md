@@ -141,6 +141,8 @@ pnpm test
 - [ ] Add option for apple podcast banner
 - [ ] Add color customization
 - [ ] Add multiple feeds options
+- [ ] Add registering and token
+- [ ] Add cache
 
 ## Credits
 

@@ -34,6 +34,13 @@ export const router = createRouter()
           },
           about: 'Render HTML from RSS feed. If User-Agent is not a browser, it will return XML RSS feed',
         },
+        parser: {
+          url: `${dotenv.BASE_URL}/api/parser`,
+          query: {
+            url: '`string`, required, url to RSS feed (could be base64 encoded)',
+          },
+          about: 'Parse RSS feed and return JSON',
+        },
       },
     }
   }))
