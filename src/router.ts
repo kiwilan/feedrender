@@ -52,6 +52,9 @@ export const router = createRouter()
     const parser = await Parser.make(query, lang)
     const error = parser.getError()
 
+    if (!isBrowser(event.node.req.headers['user-agent']))
+      sendRedirect(event, (query.url as string), 302)
+
     if (error) {
       return {
         error,
@@ -71,9 +74,6 @@ export const router = createRouter()
 
       return parser.getXml()
     }
-
-    if (!isBrowser(event.node.req.headers['user-agent']))
-      sendRedirect(event, (query.url as string), 302)
 
     return await parser.getRender()
   }))
