@@ -16,6 +16,14 @@ API to render HTML from RSS feed. Built for podcast feeds, powered by [unjs/h3][
 
 Some podcast services offer a RSS feed with HTML render if RSS feed is requested from a browser. These services (Acast, Ausha) are not open source and not free. This project is an attempt to create an open source alternative.
 
+## Features
+
+- 🌻 Render RSS feed as HTML
+- 🔧 Option to return XML feed
+- 🗂️ Option to return JSON response with HTML as string
+- ✅ If crawler is not a browser, return original XML feed
+- 🗄️ Return a JSON response with RSS feed parsed as objects
+
 ## Usage
 
 Feed renderer API offers some endpoints to execute different tasks.
