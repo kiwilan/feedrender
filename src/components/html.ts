@@ -24,7 +24,11 @@ export default {
     return h('html', {
       lang: props.podcast.language,
     }, [
-      head.setup({ title: props.podcast.title, css: props.css }),
+      head.setup({
+        title: props.podcast.title,
+        link: props.podcast.rss ? props.podcast.rss : props.podcast.link,
+        css: props.css,
+      }),
       body.setup({ podcast: props.podcast }),
     ])
   },

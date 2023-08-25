@@ -2,12 +2,17 @@ import { h } from 'vue'
 
 interface Props {
   title?: string
+  link?: string
   css?: string
 }
 
 export default {
   props: {
     title: {
+      type: String,
+      required: false,
+    },
+    link: {
       type: String,
       required: false,
     },
@@ -37,7 +42,7 @@ export default {
       h('link', {
         rel: 'alternate',
         type: 'application/rss+xml',
-        href: 'https://feeds.transistor.fm/learn-javascript',
+        href: props.link,
         title: props.title,
       }),
       h('style', { innerHTML: props.css }),
