@@ -28,6 +28,7 @@ deploy-job:
       cd /home/$SSH_USER/www/$CI_PROJECT_NAME &&
       git pull &&
       docker compose down &&
+      docker build -t feed-renderer-app:latest . &&
       docker compose up -d &&
       notifier '$CI_PROJECT_TITLE deployed'"
   only:
