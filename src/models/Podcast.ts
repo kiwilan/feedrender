@@ -85,7 +85,6 @@ export class Podcast {
 
   public async render(): Promise<string> {
     return await createDom({
-      name: 'podcast-renderer',
       props: {
         podcast: this,
       },

@@ -1,19 +1,21 @@
 import { readFile } from 'node:fs/promises'
 import { cwd } from 'node:process'
 import { renderToString } from 'vue/server-renderer'
-import podcastRenderer from './podcast-renderer'
+import renderer from './body'
+import type { Podcast } from '~/models/Podcast'
 
-type Name = 'podcast-renderer'
 interface Options {
-  name: Name
-  props: any
+  props: {
+    podcast: Podcast
+    css?: string
+  }
 }
 
 async function createDom(options: Options): Promise<string> {
   const css = await readFile(`${cwd()}/src/components/rss.css`, 'utf-8')
   options.props.css = css
 
-  const html = await renderToString(podcastRenderer.setup({ ...options.props }))
+  const html = await renderToString(renderer.setup({ ...options.props }))
 
   return `<!DOCTYPE html>${html}`
 }
