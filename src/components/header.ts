@@ -36,7 +36,9 @@ export default {
           h('img', { src: props.podcast?.image, alt: props.podcast?.title, loading: 'lazy' }),
         ]),
         h('div', { class: 'header-block__title' }, [
-          h('h1', [props.podcast?.title]),
+          h('a', { href: props.podcast?.link, target: '_blank', rel: 'noopener noreferrer' }, [
+            h('h1', [props.podcast?.title]),
+          ]),
         ]),
         h('div', { class: 'header-block__description prose' }, [
           h('div', { innerHTML: props.podcast?.description }),

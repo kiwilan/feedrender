@@ -82,4 +82,10 @@ export interface ChannelItem {
   'googleplay:image'?: {
     '@_href': string
   }
+  'itunes:season'?: string
+  'itunes:episode'?: string
+  'podcast:season'?: string
+  'podcast:episode'?: string
+  'itunes:explicit'?: string
+  'googleplay:explicit'?: string
 }
