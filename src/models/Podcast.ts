@@ -1,6 +1,7 @@
 import { renderDom } from '../components'
 import type { Channel } from '../types'
 import { Dotenv } from '../services'
+import { route } from '../routes/router'
 import { Episode } from './Episode'
 
 export class Podcast {
@@ -33,8 +34,7 @@ export class Podcast {
   ) {}
 
   public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
-    const dotenv = Dotenv.load()
-    const xmlRenderUrl = `${dotenv.BASE_URL}/api/render?url=${feedUrl}&format=xml`
+    const xmlRenderUrl = route('/api/render', { query: { url: feedUrl, format: 'xml' } })
     const self = new this(feedUrl, xmlRenderUrl)
 
     self.title = channel.title

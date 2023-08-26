@@ -1,13 +1,17 @@
 /* eslint-disable n/prefer-global/process */
 import 'dotenv/config'
 
-interface IDotenv {
+export interface IDotenv {
   PORT: number
   HOST: string
   HTTPS: boolean
-  BASE_URL: string
-  IS_DEV: boolean
   NODE_ENV?: string
+  /**
+   * Full URL of the API, like `http://localhost:3000`.
+   * On production, it's just `http://localhost`.
+   */
+  baseURL: string
+  isDev: boolean
 }
 
 export class Dotenv {
@@ -27,9 +31,9 @@ export class Dotenv {
       PORT: port,
       HOST: host,
       HTTPS: https,
-      BASE_URL: baseURL,
+      baseURL,
       NODE_ENV: process.env.NODE_ENV,
-      IS_DEV: !isProduction,
+      isDev: !isProduction,
     }
   }
 }
