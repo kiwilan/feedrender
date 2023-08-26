@@ -31,6 +31,7 @@ deploy-job:
       docker build -t feedrender-app:latest . &&
       docker compose down &&
       docker compose up -d &&
+      docker image prune -f &&
       notifier '$CI_PROJECT_TITLE deployed'"
   only:
     - main

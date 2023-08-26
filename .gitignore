@@ -18,3 +18,4 @@ src/metadata.json
 screen*.png
 /src/public/downloads
 /coverage
+feedrender.db

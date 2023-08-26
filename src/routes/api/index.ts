@@ -1,6 +1,6 @@
 import { route } from '../router'
 
-export default () => {
+export function api() {
   return {
     message: 'feedrender API docs',
     links: {
@@ -20,6 +20,13 @@ export default () => {
         },
         about: 'Parse RSS feed and return JSON',
         example: route('/api/parser', { query: { url: 'https://2hdp.fr/2HDP.xml' } }),
+      },
+      register: {
+        url: route('/api/register'),
+        query: {
+          url: '`string`, required, url to RSS feed (could be base64 encoded)',
+        },
+        about: 'Register RSS feed and return JSON',
       },
     },
   }

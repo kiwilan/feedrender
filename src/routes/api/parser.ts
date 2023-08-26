@@ -1,7 +1,7 @@
 import { type H3Event, getQuery } from 'h3'
 import { Parser } from '../../services'
 
-export default async (event: H3Event) => {
+export async function apiParser(event: H3Event) {
   const query = getQuery(event)
   const lang = event.node.req.headers['accept-language'] || 'en-US'
   const render = await Parser.make(query, lang)
