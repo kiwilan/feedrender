@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { Parser } from '../src/services'
+import { Parser } from '@/services'
 
 const feeds = [
   'https://feedpress.me/rdvjeux',
@@ -30,7 +30,7 @@ it('can use feeds', async () => {
     expect(podcast?.link).toBeDefined()
     expect(podcast?.episodes).toBeDefined()
 
-    podcast?.episodes.forEach((episode) => {
+    podcast?.episodes?.forEach((episode) => {
       expect(episode.title).toBeDefined()
       expect(episode.enclosure).toBeDefined()
       expect(episode.enclosure?.url).toBeDefined()
