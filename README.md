@@ -29,7 +29,7 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
 - [x] Render RSS feed
 - [ ] Add option for apple podcast banner
 - [ ] Add color customization
-- [ ] Add multiple feeds options
+- [ ] Add feeds options for subscribe button
 - [ ] Add registering and token
 - [ ] Add cache
 - [ ] Better error handling
