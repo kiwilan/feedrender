@@ -13,11 +13,14 @@
     "strictNullChecks": true,
     "resolveJsonModule": true,
     "outDir": "./dist",
+    "typeRoots": ["./node_modules/@types", "./src/**/*.d.ts"],
     "types": ["node"],
     "paths": {
-      "~/*": ["./src/*"],
-      "@/*": ["./*"]
+      "@/*": ["./src/*"],
+      "@": ["./src"],
+      "~": ["./"],
+      "~/*": ["./*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*.d.ts", "src/**/*.ts", "tests/**/*.ts", "*.d.ts"]
 }

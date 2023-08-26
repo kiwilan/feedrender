@@ -2,7 +2,7 @@ import type { PropType } from 'vue'
 import { h } from 'vue'
 import head from './head'
 import body from './body'
-import type { Podcast } from '~/models/Podcast'
+import type { Podcast } from '@/models/Podcast'
 
 interface Props {
   podcast: Podcast

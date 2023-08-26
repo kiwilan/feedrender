@@ -31,12 +31,6 @@ export function route(name: Route, extras?: Params): string {
   return url
 }
 
-export function createRoute(path: string): EventHandler {
-  return eventHandler(event => import(path)
-    .then(module => module.default(event))
-    .catch((error) => {
-      globalThis.error(event, error)
-      console.error(error)
-    }),
-  )
+export function createRoute(callable: CallableFunction): EventHandler {
+  return eventHandler(event => callable(event))
 }
