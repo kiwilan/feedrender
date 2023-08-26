@@ -24,6 +24,19 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
   - ✅ If crawler is not a browser, return original XML feed
 - 🗄️ Return a JSON response with RSS feed parsed as objects on `/api/parser` endpoint
 
+### Roadmap
+
+- [x] Render RSS feed
+- [ ] Add option for apple podcast banner
+- [ ] Add color customization
+- [ ] Add multiple feeds options
+- [ ] Add registering and token
+- [ ] Add cache
+- [ ] Better error handling
+- [ ] Add tests
+- [ ] Better locale support
+- [ ] Add CORS support
+
 ## Usage
 
 Feedrender API offers some endpoints to execute different tasks.
@@ -142,19 +155,6 @@ Run tests
 ```bash
 pnpm test
 ```
-
-## Roadmap
-
-- [x] Render RSS feed
-- [ ] Add option for apple podcast banner
-- [ ] Add color customization
-- [ ] Add multiple feeds options
-- [ ] Add registering and token
-- [ ] Add cache
-- [ ] Better error handling
-- [ ] Add tests
-- [ ] Better locale support
-- [ ] Add CORS support
 
 ## Credits
 
