@@ -9,12 +9,10 @@ RUN apk add git
 COPY . /usr/src/app/
 RUN npm install -g pnpm
 RUN pnpm install
-RUN if [ -d "dist" ]; then echo dist/ exists ; else pnpm build ; fi
+RUN pnpm build
 
-ENV PORT=3000
 ENV HOST=0.0.0.0
-ENV HTTPS=false
 
 EXPOSE 3000
 
-CMD [ "pnpm", "start:tsx" ]
+CMD [ "pnpm", "start" ]

@@ -1,6 +1,6 @@
 import { route } from './router'
 
-export function root() {
+export default async () => {
   return {
     message: 'Welcome on feedrender API',
     description: 'API to render HTML from RSS feed. Built for podcast feeds, powered by unjs/h3.',

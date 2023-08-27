@@ -1,8 +1,8 @@
-import { renderDom } from '../components'
-import type { Channel } from '../types'
-import { Dotenv } from '../services'
-import { route } from '../routes/router'
-import { Episode } from './Episode'
+import sanitizeHtml from 'sanitize-html'
+import { renderDom } from '@/components'
+import type { Channel } from '@/types'
+import { route } from '@/routes/router'
+import { Episode } from '@/models/Episode'
 
 export class Podcast {
   protected constructor(
@@ -38,7 +38,9 @@ export class Podcast {
     const self = new this(feedUrl, xmlRenderUrl)
 
     self.title = channel.title
-    self.description = channel.description
+
+    const description = channel.description || channel['itunes:summary'] || channel['googleplay:description'] || ''
+    self.description = sanitizeHtml(description)
 
     if (channel.image?.url)
       self.image = channel.image.url

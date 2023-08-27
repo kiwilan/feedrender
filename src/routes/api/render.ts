@@ -8,7 +8,7 @@ function isBrowser(userAgent?: string): boolean {
   return userAgent.includes('Mozilla')
 }
 
-export async function apiRender(event: H3Event) {
+export default async (event: H3Event) => {
   const query = getQuery(event)
   const format = query.format || 'html'
   const lang = event.node.req.headers['accept-language'] || 'en-US'

@@ -1,4 +1,5 @@
 import type { Options } from 'tsup'
+import 'dotenv/config'
 
 export default <Options>{
   entryPoints: [
@@ -11,6 +12,6 @@ export default <Options>{
   dts: false,
   onSuccess: 'npm run build:fix',
   env: {
-    NODE_ENV: 'production',
+    NODE_ENV: process.env.ENV || 'production',
   },
 }

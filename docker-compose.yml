@@ -9,4 +9,9 @@ services:
     ports:
       - '${DOCKER_COMPOSE_PORT}:${PORT}'
     env_file: .env
+    volumes:
+      - sqlite-data:/usr/src/app/sqlite
     restart: always
+
+volumes:
+  sqlite-data:

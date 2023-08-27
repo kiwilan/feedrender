@@ -1,4 +1,5 @@
-import type { ChannelItem } from '../types'
+import sanitizeHtml from 'sanitize-html'
+import type { ChannelItem } from '@/types'
 
 export class Episode {
   protected constructor(
@@ -34,7 +35,15 @@ export class Episode {
     }
     self.pubDate = item.pubDate
     self.date = self.formatDate(item.pubDate, lang)
-    self.description = self.addLazyLoading(item.description)
+
+    let description
+      = item.description
+      || item['itunes:summary']
+      || item['googleplay:description']
+      || ''
+    description = self.addLazyLoading(description)
+    description = sanitizeHtml(description)
+    self.description = description
 
     if (item.author)
       self.author = item.author
@@ -45,12 +54,15 @@ export class Episode {
     self.duration = item['itunes:duration']
     self.durationHuman = self.formatTime(self.duration)
     self.guid = item.guid?.['#text']
-    self.image = item['itunes:image']?.['@_href'] || item['googleplay:image']?.['@_href']
+    self.image
+      = item['itunes:image']?.['@_href'] || item['googleplay:image']?.['@_href']
 
     self.season = item['itunes:season'] || item['podcast:season']
     self.episode = item['itunes:episode'] || item['podcast:episode']
 
-    self.isExplicit = item['itunes:explicit'] === 'yes' || item['googleplay:explicit'] === 'yes'
+    self.isExplicit
+      = item['itunes:explicit'] === 'yes'
+      || item['googleplay:explicit'] === 'yes'
 
     return self
   }
@@ -89,7 +101,10 @@ export class Episode {
         const m = split[1]
         const s = split[2]
 
-        seconds = Number.parseInt(h) * 3600 + Number.parseInt(m) * 60 + Number.parseInt(s)
+        seconds
+          = Number.parseInt(h) * 3600
+          + Number.parseInt(m) * 60
+          + Number.parseInt(s)
       }
       else {
         seconds = Number.parseInt(seconds)
@@ -99,6 +114,8 @@ export class Episode {
     const hours = Math.floor(seconds / 3600)
     const minutes = Math.floor((seconds % 3600) / 60)
     const remainingSeconds = seconds % 60
-    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`
+    return `${hours.toString().padStart(2, '0')}:${minutes
+      .toString()
+      .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`
   }
 }

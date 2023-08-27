@@ -21,7 +21,7 @@ body {
     "Noto Color Emoji";
   margin: 0;
   line-height: inherit;
-  background-color: lightgray;
+  background-image: linear-gradient(to bottom, black, lightgray);
 }
 
 header {
@@ -260,6 +260,7 @@ main {
 .prose p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
 .prose img {
   margin-top: 1.5rem;

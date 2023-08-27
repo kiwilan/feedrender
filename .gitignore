@@ -19,3 +19,4 @@ screen*.png
 /src/public/downloads
 /coverage
 feedrender.db
+/data

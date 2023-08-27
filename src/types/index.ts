@@ -71,6 +71,9 @@ export interface ChannelItem {
   'googleplay:author'?: string
   'itunes:episodeType'?: string
   description?: string
+  'itunes:summary'?: string
+  'googleplay:description'?: string
+  'content:encoded'?: string
   'itunes:duration'?: string
   guid?: {
     '#text': string

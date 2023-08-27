@@ -143,7 +143,7 @@ pnpm build
 Local preview
 
 ```bash
-pnpm start:tsx
+pnpm start
 ```
 
 You can use PM2 to run application in production.

@@ -1,6 +1,6 @@
 import { route } from '../router'
 
-export function api() {
+export default async () => {
   return {
     message: 'feedrender API docs',
     links: {
