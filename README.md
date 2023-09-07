@@ -1,5 +1,7 @@
 # Feedrender
 
+![Banner with microphone picture in background and Feedrender title](https://raw.githubusercontent.com/kiwilan/feedrender/main/docs/banner.jpg)
+
 [![version][version-src]][version-href]
 [![h3][h3-version-src]][h3-version-href]
 [![node][node-version-src]][node-version-href]
