@@ -24,7 +24,8 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
   - 🔧 Option to return XML feed
   - 🗂️ Option to return JSON response with HTML as string
   - ✅ If crawler is not a browser, return original XML feed
-- 🗄️ Return a JSON response with RSS feed parsed as objects on `/api/parser` endpoint
+- 🗄️ Return a JSON response with RSS feed parsed as objects on `/api/json` endpoint
+- 🗒️ Return a XML response with RSS feed on `/api/xml` endpoint
 
 ### Roadmap
 
@@ -55,22 +56,22 @@ Default behavior is to return HTML as page. You can use query parameters to chan
 
 Query parameters
 
-| Name     | Required | Type                  | Default     | Description                                                                                                                                   |
-| -------- | -------- | --------------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `url`    | true     | `string`              | `undefined` | URL of RSS feed, allow base64 URL                                                                                                             |
-| `format` | false    | `html`, `json`, `xml` | `html`      | Type of response, default `html` will render HTML page, `json` will give JSON response with HTML string and `xml` will give original RSS feed |
+| Name     | Required | Type           | Default     | Description                                                                                             |
+| -------- | -------- | -------------- | ----------- | ------------------------------------------------------------------------------------------------------- |
+| `url`    | true     | `string`       | `undefined` | URL of RSS feed, allow base64 URL                                                                       |
+| `format` | false    | `html`, `json` | `html`      | Type of response, default `html` will render HTML page, `json` will give JSON response with HTML string |
 
 > [!WARNING]\
 > If crawler is not a browser, response will be original XML feed.
 
 Example: <https://feedrender.git-projects.xyz/api/render?url=https://2hdp.fr/2HDP.xml>
 
-### Parser
+### JSON
 
-To parse RSS feed, you can use the `/parser` endpoint.
+To parse RSS feed, you can use the `/json` endpoint.
 
 ```bash
-/api/parser
+/api/json
 ```
 
 Return a JSON response with `Podcast` object represent RSS feed.
@@ -81,7 +82,29 @@ Query parameters
 | ----- | -------- | -------- | ----------- | --------------------------------- |
 | `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
 
-Example: <https://feedrender.git-projects.xyz/api/parser?url=https://2hdp.fr/2HDP.xml>
+Example: <https://feedrender.git-projects.xyz/api/json?url=https://2hdp.fr/2HDP.xml>
+
+### XML
+
+To parse show XML from RSS feed, you can use the `/xml` endpoint.
+
+> [!NOTE]\
+>
+> Could be useful for RSS feed with only HTML render.
+
+```bash
+/api/xml
+```
+
+Return a JSON response with `Podcast` object represent RSS feed.
+
+Query parameters
+
+| Name  | Required | Type     | Default     | Description                       |
+| ----- | -------- | -------- | ----------- | --------------------------------- |
+| `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
+
+Example: <https://feedrender.git-projects.xyz/api/xml?url=https://feedpress.me/rdvjeux>
 
 ## Installation
 

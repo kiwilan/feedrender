@@ -29,11 +29,5 @@ export default async (event: H3Event) => {
     }
   }
 
-  if (format === 'xml') {
-    event.node.res.setHeader('Content-Type', 'text/xml')
-
-    return parser.getXml()
-  }
-
   return await parser.getRender()
 }

@@ -3,7 +3,7 @@ import { createRoute } from './router'
 import root from './root'
 import api from './api/index'
 import apiRender from './api/render'
-import apiParser from './api/parser'
+import apiJson from './api/json'
 import apiXml from './api/xml'
 
 // import apiRegister from './api/register'
@@ -16,7 +16,7 @@ export const router = createRouter()
   .get('/', createRoute(root))
   .get('/api', createRoute(api))
   .get('/api/render', createRoute(apiRender))
-  .get('/api/parser', createRoute(apiParser))
+  .get('/api/json', createRoute(apiJson))
   .get('/api/xml', createRoute(apiXml))
   // .post('/api/register', createRoute(apiRegister))
   // .post('/api/login', createRoute(apiLogin))
