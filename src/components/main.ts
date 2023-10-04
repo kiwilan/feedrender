@@ -52,7 +52,7 @@ export default {
                 h('p', { class: 'author' }, `${episode.author} / ${episode.durationHuman} ${episode.isExplicit ? '/ Explicit' : ''}`),
               ]),
             ]),
-            h('div', { class: 'description prose', innerHTML: episode.description }),
+            h('div', { class: 'description prose', innerHTML: episode.content || episode.description }),
             h('hr'),
             h('div', { class: 'copyright' }, [
               h('p', {}, props.podcast?.copyright),

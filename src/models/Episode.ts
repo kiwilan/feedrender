@@ -13,6 +13,7 @@ export class Episode {
     public pubDate?: string,
     public date?: string,
     public description?: string,
+    public content?: string,
     public author?: string,
     public episodeType?: string,
     public duration?: string,
@@ -39,11 +40,13 @@ export class Episode {
     let description
       = item.description
       || item['itunes:summary']
-      || item['googleplay:description']
-      || ''
+        || item['googleplay:description']
+        || ''
     description = self.addLazyLoading(description)
     description = sanitizeHtml(description)
     self.description = description
+
+    self.content = item['content:encoded']
 
     if (item.author)
       self.author = item.author

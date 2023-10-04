@@ -83,6 +83,9 @@ export class Parser {
     })
 
     this.xml = res
+    if (this.xml.includes('<?xml-stylesheet'))
+      this.xml = this.xml.replace(/<\?xml-stylesheet[^>]*\?>/g, '')
+
     const xml = parser.parse(res)
     this.channel = xml.rss.channel
     if (this.channel)

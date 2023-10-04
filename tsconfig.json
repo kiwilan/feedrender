@@ -1,28 +1,34 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "esnext",
     "lib": ["esnext", "DOM"],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
     "jsx": "react-jsx",
-    "noImplicitAny": false,
-    "strict": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
-    "outDir": "./dist",
-    "plugins": [{ "transform": "ts-transformer-keys/transformer" }],
-    "typeRoots": ["./node_modules/@types", "./src/**/*.d.ts"],
-    "types": ["node"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@": ["./src"],
       "~": ["./"],
       "~/*": ["./*"]
-    }
+    },
+    "typeRoots": ["./node_modules/@types", "./src/**/*.d.ts"],
+    "types": ["node"],
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": false,
+    "plugins": [{ "transform": "ts-transformer-keys/transformer" }]
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "tests/**/*.ts", "*.d.ts"]
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "*.d.ts",
+    "scripts/**/*.ts"
+  ]
 }

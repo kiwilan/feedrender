@@ -1,8 +1,0 @@
-{
-  "extends": "@antfu",
-  "rules": {
-    "unused-imports/no-unused-imports": "error",
-    "no-console": "warn",
-    "n/prefer-global/process": 0
-  }
-}
