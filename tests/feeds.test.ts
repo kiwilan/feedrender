@@ -8,7 +8,6 @@ const feeds = [
   'https://leduel.com/podcast_LD.xml',
   'https://soute.vaisseauhypersensas.fr/flux/comicsoutcast.xml',
   'https://soute.vaisseauhypersensas.fr/flux/whisperos.xml',
-  'https://www.studiozef.fr/category/le-bar-a-louisette/feed/',
   'https://feeds.acast.com/public/shows/floodcast',
   'https://feeds.soundcloud.com/users/soundcloud:users:274829367/sounds.rss',
   'http://www.zqsd.fr/zqsd.xml',
