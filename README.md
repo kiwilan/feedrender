@@ -44,7 +44,7 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
 
 Feedrender API offers some endpoints to execute different tasks.
 
-### Render feed
+### Render
 
 To render RSS feed, you can use the `/render` endpoint.
 
