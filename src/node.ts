@@ -17,4 +17,5 @@ if (dotenv.ENV === 'production')
 
 consola.success(`Local server: ${colors.cyanBright(dotenv.baseURL)}`)
 consola.success(`Environment: ${env}`)
+consola.success(`Port: ${colors.cyanBright(dotenv.PORT)}`)
 consola.log('')
