@@ -89,7 +89,6 @@ Example: <https://feedrender.git-projects.xyz/api/json?url=https://2hdp.fr/2HDP.
 To parse show XML from RSS feed, you can use the `/xml` endpoint.
 
 > [!NOTE]\
->
 > Could be useful for RSS feed with only HTML render.
 
 ```bash
