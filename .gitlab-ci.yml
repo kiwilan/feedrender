@@ -14,15 +14,15 @@ deploy-job:
   stage: deploy
   image: alpine:latest
   before_script:
-    - 'command -v ssh-agent >/dev/null || ( apk add --update openssh )'
+    - "command -v ssh-agent >/dev/null || ( apk add --update openssh )"
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
-    - ssh-keyscan $SSH_IP >> ~/.ssh/known_hosts
+    - ssh-keyscan -p $SSH_PORT $SSH_IP >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
   script:
-    - ssh $SSH_USER@$SSH_IP "
+    - ssh -p $SSH_PORT $SSH_USER@$SSH_IP "
       . ~/.zshrc &&
       cd /home/$SSH_USER/www/$CI_PROJECT_NAME &&
       git pull &&
@@ -31,6 +31,6 @@ deploy-job:
       docker compose build --no-cache &&
       docker compose down &&
       docker compose up -d &&
-      notifier '$CI_PROJECT_TITLE deployed'"
+      notifier discord '$CI_PROJECT_TITLE deployed'"
   only:
     - main
