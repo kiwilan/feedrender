@@ -182,7 +182,7 @@ pnpm test
 
 ## Credits
 
-- [`unjs`](https://github.com/unjs): for `unjs/h3`, `unjs/ofetch` and `unjs/listhen`
+- [`unjs`](https://github.com/unjs): for `unjs/h3` and `unjs/ofetch`
 - [`fast-xml-parser`](https://github.com/NaturalIntelligence/fast-xml-parser): for XML parsing
 - [`vue`](https://github.com/vuejs/core): for render functions used to render HTML
 
