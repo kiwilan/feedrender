@@ -1,17 +1,10 @@
----
-version: '3'
 services:
   app:
     container_name: feedrender
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - '${DOCKER_COMPOSE_PORT}:${PORT}'
-    env_file: .env
-    volumes:
-      - sqlite-data:/usr/src/app/sqlite
     restart: always
-
-volumes:
-  sqlite-data:
+    ports:
+      - "${APP_PORT}:3000"
+    env_file: .env
