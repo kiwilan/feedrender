@@ -60,7 +60,7 @@ Docker compose will use the `.env` file to set environment variables.
 
 ```bash
 docker compose down
-docker compose up -d
+docker compose up --build -d
 ```
 
 ## Usage
