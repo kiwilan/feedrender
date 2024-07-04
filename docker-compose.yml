@@ -1,5 +1,5 @@
 services:
-  app:
+  feedrender:
     container_name: feedrender
     build:
       context: .

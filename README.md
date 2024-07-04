@@ -40,6 +40,29 @@ Some podcast services offer a RSS feed with HTML render if RSS feed is requested
 - [ ] Better locale support
 - [ ] Add CORS support
 
+## Docker
+
+You can use `docker compose` to run the application.
+
+Create `.env` file
+
+```bash
+cp .env.example .env
+```
+
+- `PORT`: internal port of the container (default `3000`)
+- `HOST`: host of the application
+- `HTTPS`: false (`true` or `false`)
+- `ENV`: environment (`development`, `production`, `test`)
+- `APP_PORT`: external port of the container (default `3000`)
+
+Docker compose will use the `.env` file to set environment variables.
+
+```bash
+docker compose down
+docker compose up -d
+```
+
 ## Usage
 
 Feedrender API offers some endpoints to execute different tasks.
@@ -104,73 +127,6 @@ Query parameters
 | `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
 
 Example: <https://feedrender.git-projects.xyz/api/xml?url=https://feedpress.me/rdvjeux>
-
-## Installation
-
-### Docker
-
-You can use `docker compose` or `docker` to run the application.
-
-#### Docker compose
-
-Create `.env` file
-
-```bash
-cp .env.example .env
-```
-
-Docker compose will use the `.env` file to set environment variables.
-
-```bash
-docker compose up -d
-```
-
-#### Docker image
-
-Build and run the docker image
-
-```bash
-docker build -t feedrender-app:latest .
-docker run -it -p 3000:3000 feedrender-app:latest
-```
-
-### Local
-
-Download dependencies
-
-```bash
-pnpm i
-```
-
-Create `.env` file
-
-```bash
-cp .env.example .env
-```
-
-Run dev server
-
-```bash
-pnpm dev
-```
-
-Go to [localhost:3000](http://localhost:3000)
-
-### Build
-
-Build application
-
-```bash
-pnpm build
-```
-
-Local preview
-
-```bash
-pnpm start
-```
-
-You can use PM2 to run application in production.
 
 ## Tests
 

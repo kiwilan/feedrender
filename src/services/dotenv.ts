@@ -5,7 +5,6 @@ export interface IDotenv {
   HOST: string
   HTTPS: boolean
   ENV: 'development' | 'production' | 'test'
-  TOKEN: string
   SUPABASE_URL: string
   SUPABASE_KEY: string
   NODE_ENV?: string
@@ -40,7 +39,6 @@ export class Dotenv {
       HOST: host,
       HTTPS: https,
       ENV: env,
-      TOKEN: process.env.TOKEN ?? '123456789',
       SUPABASE_URL: process.env.SUPABASE_URL ?? '',
       SUPABASE_KEY: process.env.SUPABASE_KEY ?? '',
       baseURL,

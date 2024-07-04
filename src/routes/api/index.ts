@@ -29,13 +29,6 @@ export default async () => {
         about: 'Parse XML RSS feed and return XML (useful for feeds with HTML render)',
         example: route('/api/xml', { query: { url: 'https://feedpress.me/rdvjeux' } }),
       },
-      // register: {
-      //   url: route('/api/register'),
-      //   query: {
-      //     url: '`string`, required, url to RSS feed (could be base64 encoded)',
-      //   },
-      //   about: 'Register RSS feed and return JSON',
-      // },
     },
   }
 }
