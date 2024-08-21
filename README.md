@@ -12,7 +12,7 @@
 API to render HTML from RSS feed. Built for podcast feeds, powered by [unjs/h3][h3-version-href].
 
 > [!NOTE]\
-> Demo is available at: [feedrender.git-projects.xyz](https://feedrender.git-projects.xyz/)
+> Demo is available at: [feedrender.kiwilan.app](https://feedrender.kiwilan.app/)
 
 ## About
 
