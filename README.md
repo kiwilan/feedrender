@@ -87,7 +87,7 @@ Query parameters
 > [!WARNING]\
 > If crawler is not a browser, response will be original XML feed.
 
-Example: <https://feedrender.git-projects.xyz/api/render?url=https://2hdp.fr/2HDP.xml>
+Example: <https://feedrender.kiwilan.app/api/render?url=https://2hdp.fr/2HDP.xml>
 
 ### JSON
 
@@ -105,7 +105,7 @@ Query parameters
 | ----- | -------- | -------- | ----------- | --------------------------------- |
 | `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
 
-Example: <https://feedrender.git-projects.xyz/api/json?url=https://2hdp.fr/2HDP.xml>
+Example: <https://feedrender.kiwilan.app/api/json?url=https://2hdp.fr/2HDP.xml>
 
 ### XML
 
@@ -126,7 +126,7 @@ Query parameters
 | ----- | -------- | -------- | ----------- | --------------------------------- |
 | `url` | true     | `string` | `undefined` | URL of RSS feed, allow base64 URL |
 
-Example: <https://feedrender.git-projects.xyz/api/xml?url=https://feedpress.me/rdvjeux>
+Example: <https://feedrender.kiwilan.app/api/xml?url=https://feedpress.me/rdvjeux>
 
 ## Tests
 
