@@ -13,7 +13,7 @@ const feeds = [
   'http://www.zqsd.fr/zqsd.xml',
   'http://feeds.feedburner.com/LaperoDuCaptain',
   'https://feeds.acast.com/public/shows/cabcdc65-9f15-5900-a971-d6d96f16ed31',
-  'https://2hdp.fr/2HDP.xml',
+  'http://zqsd.fr/zqsd.xml',
   'https://feeds.acast.com/public/shows/b6dda9e2-3ed6-4145-8bcf-3a279a1e1baa',
 ]
 
