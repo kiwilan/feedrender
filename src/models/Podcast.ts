@@ -1,4 +1,5 @@
 import type { Channel } from '@/types'
+import { format } from 'node:path'
 import { renderDom } from '@/components'
 import { Episode } from '@/models/Episode'
 import { route } from '@/routes/router'
@@ -8,6 +9,7 @@ export class Podcast {
   protected constructor(
     public feedUrl: string,
     public xmlRenderUrl: string,
+    public jsonFormatUrl: string,
     public title?: string,
     public description?: string,
     public image?: string,
@@ -36,7 +38,8 @@ export class Podcast {
   public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
     // http://localhost:3000/api/xml?url=http://zqsd.fr/zqsd.xml
     const xmlRenderUrl = route('/api/xml', { query: { url: feedUrl } })
-    const self = new this(feedUrl, xmlRenderUrl)
+    const jsonFormatUrl = route('/api/render', { query: { url: feedUrl, format: 'json' } })
+    const self = new this(feedUrl, xmlRenderUrl, jsonFormatUrl)
 
     self.title = channel.title
 
