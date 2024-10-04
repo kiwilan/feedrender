@@ -1,4 +1,4 @@
-import type { ChannelItem } from '@/types'
+import type { ChannelItem } from '../types'
 import sanitizeHtml from 'sanitize-html'
 
 export class Episode {

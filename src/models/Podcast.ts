@@ -1,9 +1,8 @@
-import type { Channel } from '@/types'
-import { format } from 'node:path'
-import { renderDom } from '@/components'
-import { Episode } from '@/models/Episode'
-import { route } from '@/routes/router'
+import type { Channel } from '../types'
 import sanitizeHtml from 'sanitize-html'
+import { renderDom } from '../components'
+import { Episode } from '../models/Episode'
+import { route } from '../routes/router'
 
 export class Podcast {
   protected constructor(

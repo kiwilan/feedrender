@@ -1,5 +1,5 @@
-import { Parser } from '@/services'
 import { expect, it } from 'vitest'
+import { Parser } from '../src/services'
 
 const feeds = [
   'https://feedpress.me/rdvjeux',

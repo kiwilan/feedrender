@@ -1,5 +1,5 @@
-import type { Podcast } from '@/models/Podcast'
 import type { PropType } from 'vue'
+import type { Podcast } from '../models/Podcast'
 import { h } from 'vue'
 import header from './header'
 import main from './main'
