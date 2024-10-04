@@ -1,7 +1,7 @@
 import { createServer } from 'node:http'
-import { toNodeListener } from 'h3'
 import { consola } from 'consola'
 import { colors } from 'consola/utils'
+import { toNodeListener } from 'h3'
 import { app } from './index'
 
 const dotenv = globalThis.dotenv()

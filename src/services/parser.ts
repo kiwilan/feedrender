@@ -1,7 +1,7 @@
-import { ofetch } from 'ofetch'
-import { XMLParser, XMLValidator } from 'fast-xml-parser'
-import { Podcast } from '../models/Podcast'
 import type { Channel } from '../types'
+import { XMLParser, XMLValidator } from 'fast-xml-parser'
+import { ofetch } from 'ofetch'
+import { Podcast } from '../models/Podcast'
 
 export class Parser {
   protected constructor(
@@ -32,6 +32,7 @@ export class Parser {
       self.url = base64
     }
     catch (error) {
+      console.error(error)
     }
 
     const res = await self.fetch()

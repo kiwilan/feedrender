@@ -1,5 +1,5 @@
-import sanitizeHtml from 'sanitize-html'
 import type { ChannelItem } from '@/types'
+import sanitizeHtml from 'sanitize-html'
 
 export class Episode {
   protected constructor(
@@ -40,8 +40,8 @@ export class Episode {
     let description
       = item.description
       || item['itunes:summary']
-        || item['googleplay:description']
-        || ''
+      || item['googleplay:description']
+      || ''
     description = self.addLazyLoading(description)
     description = sanitizeHtml(description)
     self.description = description

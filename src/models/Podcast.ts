@@ -1,8 +1,8 @@
-import sanitizeHtml from 'sanitize-html'
-import { renderDom } from '@/components'
 import type { Channel } from '@/types'
-import { route } from '@/routes/router'
+import { renderDom } from '@/components'
 import { Episode } from '@/models/Episode'
+import { route } from '@/routes/router'
+import sanitizeHtml from 'sanitize-html'
 
 export class Podcast {
   protected constructor(

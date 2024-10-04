@@ -1,5 +1,5 @@
-import { eventHandler } from 'h3'
 import type { EventHandler } from 'h3'
+import { eventHandler } from 'h3'
 
 interface Params {
   params?: Record<string, string | number>

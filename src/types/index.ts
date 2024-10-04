@@ -1,22 +1,22 @@
 export interface Channel {
-  title?: string
-  link?: string
+  'title'?: string
+  'link'?: string
   'atom:link'?: {
     '@_href': string
     '@_rel': string
     '@_type': string
   }
   'itunes:subtitle'?: string
-  description?: string
+  'description'?: string
   'itunes:summary'?: string
   'googleplay:description'?: string
-  language?: string
+  'language'?: string
   'spotify:countryOfOrigin'?: string
-  copyright?: string
-  lastBuildDate?: string
-  pubDate?: string
-  webMaster?: string
-  generator?: string
+  'copyright'?: string
+  'lastBuildDate'?: string
+  'pubDate'?: string
+  'webMaster'?: string
+  'generator'?: string
   'itunes:keywords'?: string
   'dc:creator'?: string
   'itunes:author'?: string
@@ -29,22 +29,22 @@ export interface Channel {
   'itunes:explicit'?: string
   'googleplay:explicit'?: string
   'itunes:type'?: string
-  image?: ChannelImage
+  'image'?: ChannelImage
   'itunes:image'?: {
     '@_href': string
   }
   'googleplay:image'?: {
     '@_href': string
   }
-  guid?: string
-  category: string[]
+  'guid'?: string
+  'category': string[]
   'itunes:category'?: {
     '@_text': string
     'itunes:category'?: {
       '@_text': string
     }
   }[]
-  item: ChannelItem[]
+  'item': ChannelItem[]
 }
 
 export interface ChannelImage {
@@ -54,28 +54,28 @@ export interface ChannelImage {
 }
 
 export interface ChannelItem {
-  title?: string
-  link?: string
-  enclosure?: {
+  'title'?: string
+  'link'?: string
+  'enclosure'?: {
     '@_url': string
     '@_length': string
     '@_type': string
   }
-  pubDate?: string
+  'pubDate'?: string
   'dc:creator'?: {
     '#text': string
     '@_xmlns:dc': string
   }
-  author?: string
+  'author'?: string
   'itunes:author'?: string
   'googleplay:author'?: string
   'itunes:episodeType'?: string
-  description?: string
+  'description'?: string
   'itunes:summary'?: string
   'googleplay:description'?: string
   'content:encoded'?: string
   'itunes:duration'?: string
-  guid?: {
+  'guid'?: {
     '#text': string
     '@_isPermaLink': string
   }

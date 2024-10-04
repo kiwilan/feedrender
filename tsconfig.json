@@ -1,27 +1,27 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": ["esnext", "DOM"],
     "jsx": "react-jsx",
+    "lib": ["esnext", "DOM"],
+    "baseUrl": ".",
     "module": "esnext",
     "moduleResolution": "node",
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@": ["./src"],
       "~": ["./"],
       "~/*": ["./*"]
     },
+    "resolveJsonModule": true,
     "typeRoots": ["./node_modules/@types", "./src/**/*.d.ts"],
     "types": ["node"],
-    "resolveJsonModule": true,
     "allowJs": true,
-    "outDir": "./dist",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": false,
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "plugins": [{ "transform": "ts-transformer-keys/transformer" }]
   },
   "include": [

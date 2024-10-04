@@ -1,4 +1,4 @@
-import { type H3Event, getQuery } from 'h3'
+import { getQuery, type H3Event } from 'h3'
 import { Parser } from '../../services'
 
 export default async (event: H3Event) => {

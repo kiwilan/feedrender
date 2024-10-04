@@ -1,8 +1,8 @@
+import type { Podcast } from '@/models/Podcast'
 import { readFile } from 'node:fs/promises'
 import { cwd } from 'node:process'
 import { renderToString } from 'vue/server-renderer'
 import render from './html'
-import type { Podcast } from '@/models/Podcast'
 
 interface Options {
   props: {

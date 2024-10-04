@@ -1,10 +1,10 @@
 import { createRouter } from 'h3'
-import { createRoute } from './router'
-import root from './root'
 import api from './api/index'
-import apiRender from './api/render'
 import apiJson from './api/json'
+import apiRender from './api/render'
 import apiXml from './api/xml'
+import root from './root'
+import { createRoute } from './router'
 
 export const router = createRouter()
   .get('/', createRoute(root))

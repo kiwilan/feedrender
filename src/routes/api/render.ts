@@ -1,4 +1,4 @@
-import { type H3Event, getQuery, sendRedirect } from 'h3'
+import { getQuery, type H3Event, sendRedirect } from 'h3'
 import { Parser } from '../../services'
 
 function isBrowser(userAgent?: string): boolean {
