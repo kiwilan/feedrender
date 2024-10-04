@@ -1,7 +1,7 @@
 {
   "name": "feedrender",
   "type": "module",
-  "version": "1.0.01",
+  "version": "1.0.02",
   "description": "API to render HTML from RSS feed. Built for podcast feeds, powered by unjs/h3.",
   "author": {
     "name": "Ewilan Rivière",
