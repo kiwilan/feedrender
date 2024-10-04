@@ -31,8 +31,9 @@ export class Parser {
       const base64 = atob(self.url)
       self.url = base64
     }
+    // eslint-disable-next-line unused-imports/no-unused-vars
     catch (error) {
-      console.error(error)
+      // console.error(error)
     }
 
     const res = await self.fetch()

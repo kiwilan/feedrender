@@ -34,7 +34,8 @@ export class Podcast {
   ) {}
 
   public static make(feedUrl: string, channel: Channel, lang: string = 'en'): Podcast {
-    const xmlRenderUrl = route('/api/render', { query: { url: feedUrl, format: 'xml' } })
+    // http://localhost:3000/api/xml?url=http://zqsd.fr/zqsd.xml
+    const xmlRenderUrl = route('/api/xml', { query: { url: feedUrl } })
     const self = new this(feedUrl, xmlRenderUrl)
 
     self.title = channel.title
@@ -87,6 +88,14 @@ export class Podcast {
     self.episodes = []
     channel.item?.forEach((item) => {
       self.episodes?.push(Episode.make(item, self.lang))
+    })
+
+    // sort episodes by date
+    self.episodes?.sort((a, b) => {
+      if (a.pubDate && b.pubDate) {
+        return new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime()
+      }
+      return 0
     })
 
     return self
