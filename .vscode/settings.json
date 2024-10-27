@@ -11,5 +11,5 @@
   "eslint.validate": ["javascript", "js", "typescript"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "dotenv.enableAutocloaking": false,
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true
 }
