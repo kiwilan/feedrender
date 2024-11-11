@@ -7,9 +7,10 @@ RUN apk update && apk upgrade
 RUN apk add git
 
 COPY . /app/
-RUN npm install -g pnpm
-RUN pnpm install
-RUN pnpm build
+RUN rm -rf node_modules
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.shrc" SHELL="$(which sh)" sh -
+RUN /root/.local/share/pnpm/pnpm install
+RUN /root/.local/share/pnpm/pnpm build
 
 ENV HOST=0.0.0.0
 
