@@ -1,4 +1,4 @@
-FROM node:20.17.0-alpine
+FROM node:20.15.0-alpine
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -15,5 +15,4 @@ ENV HOST=0.0.0.0
 
 EXPOSE 3000
 
-# CMD ["pm2-runtime", "start", "./dist/node.js"]
 CMD ["node", "./dist/node.js"]
