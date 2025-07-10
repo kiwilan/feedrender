@@ -11,9 +11,6 @@
 
 API to render HTML from RSS feed. Built for podcast feeds, powered by [unjs/h3][h3-version-href].
 
-> [!NOTE]\
-> Demo is available at: [feedrender.kiwilan.app](https://feedrender.kiwilan.app/)
-
 ## About
 
 Some podcast services offer a RSS feed with HTML render if RSS feed is requested from a browser. These services (Acast, Ausha) are not open source and not free. This project is an attempt to create an open source alternative.
